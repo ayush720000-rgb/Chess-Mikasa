@@ -1,0 +1,432 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-canvas: #000000;
+    --bg-surface: #0a0a0a;
+    --bg-clay: #141414;
+    --accent-royal-gold: #e5b869;
+    --accent-gold-bright: #ffd88c;
+    --accent-gold-dark: #b8862d;
+    --accent-gold-muted: rgba(229, 184, 105, 0.28);
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --text-gold: #ffd88c;
+  }
+
+  html, body, #root {
+    width: 100%;
+    max-width: 100vw;
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    background:
+      radial-gradient(ellipse 85% 50% at 50% -10%, rgba(229, 184, 105, 0.12) 0%, rgba(20, 20, 20, 0.7) 45%, #000000 100%),
+      radial-gradient(circle at 10% 85%, rgba(24, 24, 27, 0.45) 0%, transparent 60%),
+      radial-gradient(circle at 90% 85%, rgba(28, 28, 30, 0.4) 0%, transparent 60%),
+      #000000;
+    background-attachment: fixed;
+    color: var(--text-primary);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Luxury Royal Black, White & Gold Claymorphism */
+.clay-card {
+  background: linear-gradient(155deg, #141414, #080808);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(229, 184, 105, 0.25);
+  box-shadow:
+    0 14px 38px -4px rgba(0, 0, 0, 0.92),
+    0 0 1px 1px rgba(229, 184, 105, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.14),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.7);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+
+.clay-card-interactive {
+  cursor: pointer;
+  position: relative;
+}
+.clay-card-interactive:hover {
+  transform: translateY(-3px);
+  border-color: rgba(229, 184, 105, 0.58);
+  box-shadow:
+    0 20px 42px -6px rgba(0, 0, 0, 0.95),
+    0 0 24px rgba(229, 184, 105, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.22);
+}
+.clay-card-interactive:active {
+  transform: translateY(1px);
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.75),
+    inset 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.clay-button {
+  background: linear-gradient(155deg, #1c1c1c, #0d0d0d);
+  border-radius: 0.875rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.65),
+    inset 0 1px 2px rgba(255, 255, 255, 0.12),
+    inset 0 -1px 3px rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+  color: #ffffff;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.clay-button:hover:not(:disabled) {
+  transform: translateY(-1.5px);
+  background: linear-gradient(155deg, #262626, #141414);
+  border-color: rgba(229, 184, 105, 0.45);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.75),
+    0 0 16px rgba(229, 184, 105, 0.18),
+    inset 0 1px 2px rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+}
+
+.clay-button:active:not(:disabled) {
+  transform: translateY(1.5px);
+  box-shadow:
+    inset 0 3px 6px rgba(0, 0, 0, 0.8),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.08);
+}
+
+.clay-button-primary {
+  background: linear-gradient(145deg, #f0c57c, #c89547);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 6px 24px rgba(229, 184, 105, 0.45),
+    inset 0 1px 3px rgba(255, 255, 255, 0.55),
+    inset 0 -2px 4px rgba(138, 93, 27, 0.6);
+  color: #050505;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.clay-button-primary:hover:not(:disabled) {
+  background: linear-gradient(145deg, #ffd88c, #db9f4e);
+  transform: translateY(-1.5px);
+  box-shadow:
+    0 9px 30px rgba(229, 184, 105, 0.65),
+    0 0 20px rgba(255, 216, 140, 0.35),
+    inset 0 1px 3px rgba(255, 255, 255, 0.7);
+}
+
+.clay-button-primary:active:not(:disabled) {
+  transform: translateY(1.5px);
+  box-shadow:
+    inset 0 3px 6px rgba(115, 75, 18, 0.8),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.clay-button-secondary {
+  background: linear-gradient(145deg, #222222, #111111);
+  border: 1px solid rgba(229, 184, 105, 0.3);
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.6),
+    inset 0 1px 2px rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.clay-button-secondary:hover:not(:disabled) {
+  background: linear-gradient(145deg, #2e2e2e, #1a1a1a);
+  border-color: rgba(229, 184, 105, 0.6);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.75),
+    0 0 16px rgba(229, 184, 105, 0.25),
+    inset 0 1px 2px rgba(255, 255, 255, 0.25);
+}
+
+.clay-button-danger {
+  background: linear-gradient(145deg, #8f2323, #5a1414);
+  border: 1px solid rgba(255, 200, 200, 0.3);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.6),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* Glassmorphism Luxury Layer (Obsidian / Platinum) */
+.glass-panel {
+  background: rgba(8, 8, 8, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(229, 184, 105, 0.22);
+}
+
+.glass-pill {
+  background: rgba(20, 20, 20, 0.9);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(229, 184, 105, 0.22);
+}
+
+/* Minimalist Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.7);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(229, 184, 105, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(229, 184, 105, 0.55);
+}
+
+/* Drawer slide animations */
+@keyframes drawerSlideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0.85;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes drawerSlideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0.85;
+  }
+}
+
+.animate-drawer-in {
+  animation: drawerSlideInRight 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-drawer-out {
+  animation: drawerSlideOutRight 0.18s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+/* Luxury Shimmer & Glow Keyframes */
+@keyframes goldSweep {
+  0% {
+    transform: translateX(-100%) skewX(-20deg);
+  }
+  50%, 100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+@keyframes floatPieceSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(3deg);
+  }
+}
+
+@keyframes floatPieceReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-3deg);
+  }
+}
+
+@keyframes royalGlow {
+  0%, 100% {
+    box-shadow: 0 0 18px rgba(229, 184, 105, 0.18), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 32px rgba(229, 184, 105, 0.38), inset 0 1px 2px rgba(255, 255, 255, 0.35);
+  }
+}
+
+.animate-float-slow {
+  animation: floatPieceSlow 7s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatPieceReverse 8.5s ease-in-out infinite;
+}
+
+.animate-royal-glow {
+  animation: royalGlow 4s ease-in-out infinite;
+}
+
+.animate-gold-sweep {
+  animation: goldSweep 3.5s ease-in-out infinite;
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #ffd88c 35%, #e5b869 70%, #c89547 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Handcrafted Wooden Chess Elements & Marquetry Purfling */
+.wood-inlay-strip {
+  height: 2px;
+  width: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    #2c1a0e 0px,
+    #2c1a0e 8px,
+    #e5b869 8px,
+    #e5b869 10px,
+    #1a1009 10px,
+    #1a1009 18px,
+    #f3d082 18px,
+    #f3d082 20px
+  );
+  opacity: 0.75;
+}
+
+.wood-plaque {
+  background: radial-gradient(ellipse at 50% 25%, #2a170c 0%, #170d06 60%, #0a0603 100%);
+  border: 1px solid rgba(229, 184, 105, 0.45);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.2),
+    inset 0 -1px 3px rgba(0, 0, 0, 0.9),
+    0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.brass-rivet {
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 35% 35%, #fff0b3 0%, #e5b869 45%, #8f651c 100%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.7), inset 0 0 1px rgba(0, 0, 0, 0.6);
+}
+
+.chess-felt-drawer {
+  background: linear-gradient(180deg, #100b07 0%, #080808 100%);
+  border: 1px solid rgba(229, 184, 105, 0.25);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.85);
+}
+
+/* Checkered Purfling Border for Tournament Craftsmanship */
+.chess-checkered-border {
+  background-image: repeating-conic-gradient(#1c140a 0% 25%, #d4a373 0% 50%);
+  background-size: 8px 8px;
+  background-position: 0 0;
+}
+
+/* Defeat Topple Keyframes */
+@keyframes defeatTopple {
+  0% {
+    transform: rotate(0deg) scale(1);
+    filter: drop-shadow(0 0 0 rgba(225, 29, 72, 0));
+  }
+  30% {
+    transform: rotate(25deg) translateY(-4px) scale(1.02);
+  }
+  65% {
+    transform: rotate(82deg) translateY(12px) scale(0.98);
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 14px rgba(225, 29, 72, 0.5));
+  }
+  85% {
+    transform: rotate(76deg) translateY(10px) scale(0.98);
+  }
+  100% {
+    transform: rotate(80deg) translateY(11px) scale(0.98);
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 18px rgba(225, 29, 72, 0.6));
+  }
+}
+
+.animate-defeat-topple {
+  animation: defeatTopple 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  transform-origin: bottom right;
+}
+
+/* Radiant Victory Pulse */
+@keyframes victoryRadiance {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(255, 216, 140, 0.45), 0 0 60px rgba(229, 184, 105, 0.25);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(255, 216, 140, 0.8), 0 0 90px rgba(229, 184, 105, 0.45);
+    transform: scale(1.03);
+  }
+}
+
+.animate-victory-radiance {
+  animation: victoryRadiance 2.5s ease-in-out infinite;
+}
+
+/* Indicator Glowing States */
+.indicator-texting-gold {
+  background: #ffd88c;
+  box-shadow: 0 0 10px #ffd88c, 0 0 20px rgba(255, 216, 140, 0.8);
+}
+
+.indicator-away-silver {
+  background: #d4d4d8;
+  box-shadow: 0 0 8px rgba(212, 212, 216, 0.7);
+}
+
+/* Luxury Gold Loading Progress Bar Animations */
+@keyframes indeterminateBeam {
+  0% {
+    transform: translateX(-100%);
+    width: 35%;
+  }
+  50% {
+    width: 65%;
+  }
+  100% {
+    transform: translateX(320%);
+    width: 35%;
+  }
+}
+
+.animate-indeterminate-beam {
+  animation: indeterminateBeam 1.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(229, 184, 105, 0.15) 0%,
+    rgba(255, 216, 140, 0.85) 50%,
+    rgba(229, 184, 105, 0.15) 100%
+  );
+  background-size: 200% 100%;
+  animation: goldShimmer 1.8s ease-in-out infinite;
+}
+
+.luxury-gold-progress-track {
+  background: #0d0d0d;
+  border: 1px solid rgba(229, 184, 105, 0.35);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.luxury-gold-progress-fill {
+  background: linear-gradient(90deg, #c89547 0%, #ffd88c 45%, #ffffff 70%, #e5b869 100%);
+  box-shadow: 0 0 16px rgba(255, 216, 140, 0.9), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+}
+
+
